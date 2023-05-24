@@ -33,3 +33,29 @@ export const getMenu = () => {
     method: 'GET'
   })
 }
+
+// 获取列表数据
+export const getList = (url: string, data?: any) => {
+  return service.request({
+    url: `${url}/list`,
+    method: 'GET',
+    params: data
+  })
+}
+
+// 添加数据
+export const addList = (url: string, data?: any) => {
+  return service.request({
+    url: `${url}`,
+    method: 'post',
+    data
+  })
+}
+
+// 获取上级菜单
+export const getParent = (url: string) => {
+  return service.request({
+    url: `${url}/parent`,
+    method: 'GET'
+  })
+}

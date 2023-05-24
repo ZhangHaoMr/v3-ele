@@ -5,9 +5,7 @@
       <el-form
         ref="ruleFormRef"
         :model="ruleForm"
-        :rules="rules"
         class="demo-ruleForm"
-        :size="formSize"
         status-icon
       >
         <el-form-item prop="password">
@@ -32,66 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
-import { postImg, getLogin, getInfo, getMenu } from '@/api'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-const formSize = ref('default')
-const ruleFormRef = ref<FormInstance>()
-const ruleForm = ref({
-  username: 'admin',
-  password: '1234',
-  code: ''
-})
-const imgUrl = ref<any>('')
-
-const rules = reactive<FormRules>({})
-
-// 获取验证码
-const getImg = async () => {
-  try {
-    const res: any = await postImg()
-    console.log(res, '123')
-    let blob = new Blob([res], { type: 'image/png' })
-    console.log(blob, 'blob')
-    const url = window.URL.createObjectURL(blob)
-    console.log(url)
-    imgUrl.value = url
-  } catch (e) {
-    console.log(e)
-  }
-}
-getImg()
-
-// 登录
-const submitForm = async () => {
-  try {
-    const res: any = await getLogin(ruleForm.value)
-    // console.log(res)
-    localStorage.setItem('token', res.token)
-    const info: any = await getInfo()
-    const menu: any = await getMenu()
-    localStorage.setItem('info', JSON.stringify(info.data))
-    localStorage.setItem('menu', JSON.stringify(menu.data))
-    // console.log('info', info)
-    // console.log('menu', menu)
-    router.push('/')
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-// 取消
-const resetForm = () => {
-  ruleForm.value = {
-    password: '',
-    username: '',
-    code: ''
-  }
-}
+import { resetForm, submitForm, imgUrl, ruleForm, getImg } from './login'
 </script>
 
 <style lang="scss">

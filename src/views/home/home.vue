@@ -24,6 +24,12 @@ import Header from './components/header.vue'
   height: 100%;
 }
 .el-header {
+  height: 80px;
   padding: 0;
+}
+.el-main {
+  padding: 10px;
+  height: calc(100% - 80px);
+  box-sizing: border-box;
 }
 </style>

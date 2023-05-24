@@ -10,7 +10,7 @@
       <el-icon><Search /></el-icon>
       <el-icon><FullScreen /></el-icon>
       <el-icon><Printer /></el-icon>
-      <el-dropdown trigger="click">
+      <el-dropdown trigger="click" @command="handleCommand">
         <span class="el-dropdown-link">
           <img
             src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80"
@@ -21,7 +21,7 @@
           </el-icon>
         </span>
         <template #dropdown>
-          <el-dropdown-menu @command="handleCommand">
+          <el-dropdown-menu>
             <el-dropdown-item divided command="个人中心">
               个人中心
             </el-dropdown-item>
@@ -54,6 +54,8 @@
 import router from '@/router'
 
 const handleCommand = (e: string) => {
+  console.log(e)
+
   if (e == '退出登录') {
     localStorage.clear()
     router.push('/login')
