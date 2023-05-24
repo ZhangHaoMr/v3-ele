@@ -6,7 +6,6 @@
     <el-container>
       <el-header>
         <Header />
-        <tags />
       </el-header>
       <el-main>
         <router-view />
@@ -18,7 +17,6 @@
 <script lang="ts" setup>
 import Aside from './components/aside.vue'
 import Header from './components/header.vue'
-import tags from './components/tags.vue'
 </script>
 
 <style lang="scss">

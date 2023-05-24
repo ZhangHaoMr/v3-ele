@@ -22,16 +22,31 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu @command="handleCommand">
-            <el-dropdown-item divided command="重置密码">
-              重置密码
+            <el-dropdown-item divided command="个人中心">
+              个人中心
+            </el-dropdown-item>
+            <el-dropdown-item divided command="数据还原">
+              数据还原
             </el-dropdown-item>
             <el-dropdown-item divided command="退出登录">
-              退出登录
+              退出
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
     </div>
+  </div>
+  <div class="tags">
+    <el-tag
+      class="mx-1"
+      effect="dark"
+      closable
+      type="success"
+      label="Tag 2"
+      color="#42b983"
+    >
+      首页
+    </el-tag>
   </div>
 </template>
 
@@ -54,7 +69,8 @@ const handleCommand = (e: string) => {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  padding: 0;
+  box-sizing: border-box;
+  padding: 0 10px;
   .header_left {
     display: flex;
     justify-content: space-between;
@@ -80,5 +96,10 @@ const handleCommand = (e: string) => {
       border-radius: 10px;
     }
   }
+}
+.tags {
+  padding: 2px 10px;
+  border-bottom: 2px solid #ccc;
+  box-shadow: #ccc;
 }
 </style>

@@ -8,10 +8,10 @@
       <div>Vue Element Admin</div>
     </header>
     <el-menu
-      active-text-color="#ffd04b"
-      background-color="#545c64"
+      active-text-color="#409eff"
+      background-color="#304156"
       class="el-menu-vertical-demo"
-      default-active="2"
+      :default-active="$route.path"
       text-color="#fff"
       unique-opened
       router
